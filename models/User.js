@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {}
@@ -36,16 +37,25 @@ User.init(
     hooks: {
       beforeCreate: async (newUserData) => {
         // make username and email lower case to ensure consistant data
-        newUserData.username = await newUserData.username.toLowerCase();
-        newUserData.email = await newUserData.email.toLowerCase();
-
+        const {username, email, password} = newUserData;
+        newUserData.username = username.toLowerCase();
+        newUserData.email = email.toLowerCase();
+        
         // encrypt password
+        newUser.password = await bcrypt.hash(password, 10);
+
         return newUserData;
       },
 
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.email = await updatedUserData.email.toLowerCase();
-        newUserData.email = await newUserData.email.toLowerCase();
+        // make username and email lower case to ensure consistant data
+        const {username, email, password} = updatedUserData;
+        updatedUserData.username = username.toLowerCase();
+        updatedUserData.email = email.toLowerCase();
+        
+        // encrypt password
+        newUser.password = await bcrypt.hash(password, 10);
+
         return updatedUserData;
       },
     },
