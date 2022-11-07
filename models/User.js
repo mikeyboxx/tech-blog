@@ -35,6 +35,7 @@ User.init(
   },
   {
     hooks: {
+      // pre-process data before comitting to database
       beforeCreate: async (newUserData) => {
         const {username, email, password} = newUserData;
         
@@ -48,6 +49,7 @@ User.init(
         return newUserData;
       },
       
+      // this is executed only when running the seeds process
       beforeBulkCreate: async (newUserDataArr) => {
         for (user of newUserDataArr ){
           try {
@@ -64,6 +66,7 @@ User.init(
         return newUserDataArr;
       },
 
+      // pre-process data before comitting to database
       beforeUpdate: async (updatedUserData) => {
         // make username and email lower case to ensure consistant data
         const {username, email, password} = updatedUserData;
