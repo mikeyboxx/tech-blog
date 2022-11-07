@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const clog = require('./middleware/clog');
+const sequelize = require('./config/connection');
 const routes = require('./controllers');  // all routes get intercepted there
 
 const app = express();
@@ -26,7 +27,9 @@ app.use(clog);
 app.use(routes);
 
 
-app.listen(PORT, ()=>{
-  console.log(`Server has started... Listening on http://localhost:${PORT}/`);
-  console.log('Time:', Intl.DateTimeFormat('en-US',{dateStyle: 'long', timeStyle: 'long'}).format(new Date()));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, ()=>{
+    console.log(`Server has started... Listening on http://localhost:${PORT}/`);
+    console.log('Time:', Intl.DateTimeFormat('en-US',{dateStyle: 'long', timeStyle: 'long'}).format(new Date()));
+  })
 });

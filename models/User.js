@@ -36,15 +36,32 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        // make username and email lower case to ensure consistant data
         const {username, email, password} = newUserData;
+        
+        // make username and email lower case to ensure consistant data
         newUserData.username = username.toLowerCase();
         newUserData.email = email.toLowerCase();
         
         // encrypt password
-        newUser.password = await bcrypt.hash(password, 10);
-
+        newUserData.password = await bcrypt.hash(password, 10);
+        
         return newUserData;
+      },
+      
+      beforeBulkCreate: async (newUserDataArr) => {
+        for (user of newUserDataArr ){
+          try {
+            const {username, email, password} = user;
+            user.username =  username.toLowerCase();
+            user.email =  email.toLowerCase();
+            user.password = await bcrypt.hash(password, 10);
+          }
+          catch (err){  
+            console.log(err);
+          }
+        }
+
+        return newUserDataArr;
       },
 
       beforeUpdate: async (updatedUserData) => {
@@ -54,7 +71,7 @@ User.init(
         updatedUserData.email = email.toLowerCase();
         
         // encrypt password
-        newUser.password = await bcrypt.hash(password, 10);
+        updatedUserData.password = await bcrypt.hash(password, 10);
 
         return updatedUserData;
       },
