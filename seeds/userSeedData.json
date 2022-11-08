@@ -1,27 +1,22 @@
 [
   {
     "username": "devious12",
-    "email": "devil@hell.com",
     "password": "hellAwaits123"
   },
   {
     "username": "godly777",
-    "email": "angel@heaven.com",
     "password": "blissfullJoy"
   },
   {
     "username": "hackeroo",
-    "email": "baddassHacker@AbCdEfG.com",
     "password": "!@#$%^&*()_+"
   },
   {
     "username": "MasterBlaster",
-    "email": "misterBlast@dynomite.org",
     "password": "boom12345"
   },
   {
     "username": "TheWitcher",
-    "email": "magic@misty.com",
     "password": "niceshow1"
   }
 ]
