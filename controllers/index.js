@@ -1,12 +1,12 @@
 const router = require('express').Router();
 
-// const homeRoutes = require('./home-routes.js');
-// router.use('/', homeRoutes);
+const homePageRoute = require('./home-page-route.js');
+router.use('/', homePageRoute);
 
+router.get('/post/:id', async (req, res) => {
+  res.send(req.params.id);
+});
 
-router.get('/',  (req, res) => {
-  res.render('homepage', {title: 'The Tech Blog'});
-})
 
 router.get('*',  (req, res) => {
   res.render('404');
