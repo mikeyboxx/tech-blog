@@ -4,6 +4,10 @@ const router = require('express').Router();
 // router.use('/', homeRoutes);
 
 
+router.get('/',  (req, res) => {
+  res.render('homepage');
+})
+
 router.get('*',  (req, res) => {
   res.render('404');
 })
