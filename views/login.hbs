@@ -1,0 +1,34 @@
+{{> navbar }}
+
+<div class="row justify-space-between-md">
+  <div class="login-card">
+
+    {{#if signUp}}
+    <h2 class="page-title">Sign Up</h2>
+    {{else}}
+    <h2 class="page-title">Login</h2>
+    {{/if}}
+
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Username</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        {{#if signUp}}
+        <button class="btn btn-primary" type="submit">Sign Up!!</button>
+        <a href="/login">Login instead</a>
+         {{else}}
+        <button class="btn btn-primary" type="submit">Login!</button>
+        <a href="/signup">Sign up instead</a>
+         {{/if}}
+      </div>
+    </form>
+  </div>
+  
+
+{{!-- <script src="./js/login.js"></script> --}}

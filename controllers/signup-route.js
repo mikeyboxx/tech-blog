@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
   // Otherwise, render the 'login' template
   res.render('login', {
-    signUp: false,
+    signUp: true,
     title: 'The Tech Blog',
   });
 });
