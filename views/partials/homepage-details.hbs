@@ -1,21 +1,21 @@
-<div class="posts">
-  {{#each posts}}
-  <div class="card">
-    <header class="card-header">
-      <div class="card-header-title">
-        <a class="blog-title-link" href="/post/{{id}}">
-          {{title}}
-        </a>
-        <p>
-          Posted by {{user.username}} on {{createdAt}}
-        </p> 
-      </div>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        {{content}}
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
+<section class="container">
+   <section class="flex-row justify-center">
+
+    {{#each posts}}
+    <section class="card">
+      <header class="card-header">
+        <div class="card-header-title">
+          <a class="blog-title-link" href="/post/{{id}}">{{title}}</a>
+          <p> Posted by {{user.username}} on {{createdAt}}</p> 
+        </div>
+      </header>
+      <section class="card-content">
+        <p class="content">
+          {{content}}
+        </p>
+      </section>
+    </section>
+    {{/each}}
+
+  </section>
+</section>
