@@ -2,26 +2,28 @@
   <div class="card">
     <header class="card-header">
       <div class="card-header-title">
+    {{#with post}}
         <p>  
-          {{post.title}}
+          {{title}}
         </p>
         <p>
-          Posted by {{post.user.dataValues.username}} on {{post.createdAt}}
+          Posted by {{user.username}} on {{createdAt}}
         </p> 
       </div>
     </header>
     <div class="card-content">
       <div class="content">
-        {{post.content}}
+        {{content}}
       </div>
-      {{#each post.comments as |comment|}}
+      {{#each comments }}
         <div>
-          {{comment.dataValues.content}}
+          {{content}}
         </div>
         <div>
-          --{{comment.user.dataValues.username}}, {{comment.dataValues.createdAt}}
+          --{{user.username}}, {{createdAt}}
         </div>
       {{/each}}
+    {{/with}}
     </div>
   </div>
 </div>

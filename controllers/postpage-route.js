@@ -25,18 +25,15 @@ router.get('/:id', async (req, res) => {
     });
 
     // res.json(post);
-    console.log(post);
+
     res.render('postpage', {
-      data: {
-        title: 'The Tech Blog',
-        post: post.dataValues
-      }
+      title: 'The Tech Blog',
+      post: post.get({plain: true})
     });
 
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

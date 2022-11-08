@@ -12,15 +12,12 @@ router.get('/', async (req, res) => {
       order: [['createdAt', 'DESC']],
       attributes: ['id', 'title', 'content', 'createdAt']
     });
-    
+
     // res.json(posts);
 
-
     res.render('homepage', {
-      data: {
-        title: 'The Tech Blog',
-        posts: posts.map(el=>el.dataValues)
-      }
+      title: 'The Tech Blog',
+      posts: posts.map(post => post.get(({ plain: true })))
     });
 
   } catch (err) {
