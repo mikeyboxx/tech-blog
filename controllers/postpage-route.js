@@ -24,14 +24,14 @@ router.get('/:id', async (req, res) => {
       ],
     });
 
-    res.json(post);
-
-    // res.render('homepage', {
-    //   data: {
-    //     title: 'The Tech Blog',
-    //     posts: posts.map(el=>el.dataValues)
-    //   }
-    // });
+    // res.json(post);
+    console.log(post);
+    res.render('postpage', {
+      data: {
+        title: 'The Tech Blog',
+        post: post.dataValues
+      }
+    });
 
   } catch (err) {
     res.status(500).json(err);

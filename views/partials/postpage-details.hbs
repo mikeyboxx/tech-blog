@@ -1,0 +1,27 @@
+<div class="posts">
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">
+        <p>  
+          {{post.title}}
+        </p>
+        <p>
+          Posted by {{post.user.dataValues.username}} on {{post.createdAt}}
+        </p> 
+      </div>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{post.content}}
+      </div>
+      {{#each post.comments as |comment|}}
+        <div>
+          {{comment.dataValues.content}}
+        </div>
+        <div>
+          --{{comment.user.dataValues.username}}, {{comment.dataValues.createdAt}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
