@@ -1,4 +1,25 @@
 <div class="posts">
+  {{#each posts}}
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">
+        <a class="blog-title-link" href="#">
+          {{title}}
+        </a>
+        <p>
+          Posted by {{username}} on {{createdAt}}
+        </p> 
+      </div>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{content}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{!-- <div class="posts">
   <div class="card">
     <header class="card-header">
       <div class="card-header-title">
@@ -16,4 +37,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
