@@ -1,0 +1,26 @@
+<div id="middle" class="section columns is-multiline ">
+  <div class="column is-half">
+    <div class="middle-box box api-card-crypto is-flex">
+      <table class="table is-striped" id="crypto-table">
+        <thead>
+          <tr>
+            <th style="padding-right: 1px;">Crypto </th>
+            <th>Coin</th>
+            <th style="text-align: right; padding-right: 2px;">Current Market Price</th>
+            <th style="text-align: right;">Price Change in Last 24hrs</th>
+          </tr>
+        </thead>
+        <tbody id="crypto-body">
+          {{#each coins}}
+          <tr>
+            <td><img src="{{image}}"></td>
+            <td>{{name}}</td>
+            <td style="text-align: right;">{{roundPrice current_price}}</td>
+            <td style="text-align: right;">{{roundPrice price_change_24h}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
