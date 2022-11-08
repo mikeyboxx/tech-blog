@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 
 router.get('/',  (req, res) => {
-  res.render('homepage');
+  res.render('homepage', {title: 'The Tech Blog'});
 })
 
 router.get('*',  (req, res) => {
