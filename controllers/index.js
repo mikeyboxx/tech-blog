@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const homePageRoute = require('./home-page-route.js');
+const homePageRoute = require('./homepage-route.js');
+const postPageRoute = require('./postpage-route.js');
+
 router.use('/', homePageRoute);
 
-router.get('/post/:id', async (req, res) => {
-  res.send(req.params.id);
-});
+router.use('/post/', postPageRoute);
 
 
 router.get('*',  (req, res) => {
