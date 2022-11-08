@@ -21,13 +21,10 @@ router.get('/:id', async (req, res) => {
             },
           ]
         },
-    ],
+      ],
     });
 
     res.json(post);
-
-    // const arr = posts.map(el=>el.dataValues);
-    // console.log(arr);
 
     // res.render('homepage', {
     //   data: {

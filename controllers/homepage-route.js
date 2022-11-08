@@ -12,11 +12,9 @@ router.get('/', async (req, res) => {
       order: [['createdAt', 'DESC']],
       attributes: ['id', 'title', 'content', 'createdAt']
     });
-
+    
     // res.json(posts);
 
-    const arr = posts.map(el=>el.dataValues);
-    // console.log(arr);
 
     res.render('homepage', {
       data: {
