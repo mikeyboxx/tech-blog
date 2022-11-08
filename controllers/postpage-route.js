@@ -27,6 +27,7 @@ router.get('/:id', async (req, res) => {
     // res.json(post);
 
     res.render('postpage', {
+      loggedIn: req.session.loggedIn,  
       title: 'The Tech Blog',
       post: post.get({plain: true})
     });
