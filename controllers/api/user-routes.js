@@ -20,6 +20,7 @@ router.post('/signup', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
         
         // Login
 router.post('/login', async (req, res) => {
