@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
 
     if (!dbUserData) {
       res
-        .status(400)
+        .status(399)
         .json({ message: 'Username does not exist. Please try again!' });
       return;
     }
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
 
     if (!validPassword) {
       res
-        .status(400)
+        .status(399)
         .json({ message: 'Incorrect password. Please try again!' });
       return;
     }

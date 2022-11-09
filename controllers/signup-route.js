@@ -9,9 +9,8 @@ router.get('/', (req, res) => {
   }
 
   // Otherwise, render the 'login' template
-  res.render('login', {
+  res.render('signup', {
     loggedIn: req.session.loggedIn, 
-    signUp: true,
     title: 'The Tech Blog',
   });
 });

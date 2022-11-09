@@ -2,12 +2,7 @@
 
 <div class="row justify-space-between-md">
   <div class="login-card">
-
-    {{#if signUp}}
-    <h2 class="page-title">Sign Up</h2>
-    {{else}}
-    <h2 class="page-title">Login</h2>
-    {{/if}}
+    <h2 class="page-title" id="page-title">Login</h2>
 
     <form class="form login-form">
       <div class="form-group">
@@ -19,13 +14,8 @@
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div class="form-group">
-        {{#if signUp}}
-        <button class="btn btn-primary btn-signup" type="submit">Sign Up!!</button>
-        <a href="/login">Login instead</a>
-         {{else}}
-        <button class="btn btn-primary btn-login" type="submit">Login!</button>
-        <a href="/signup">Sign up instead</a>
-         {{/if}}
+        <button class="btn btn-primary" type="submit">Login!</button>
+        <a href="/signup" id="link">Sign up instead</a>
       </div>
     </form>
   </div>
