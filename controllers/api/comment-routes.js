@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
-// CREATE new user
 router.post('/', async (req, res) => {
 
   try {
@@ -20,7 +19,6 @@ router.post('/', async (req, res) => {
 });
 
         
-        // Login
 
 
 
