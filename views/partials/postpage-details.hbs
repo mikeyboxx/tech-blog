@@ -1,8 +1,8 @@
 <div class="posts">
+{{#with post}}
   <div class="card">
     <header class="card-header">
       <div class="card-header-title">
-    {{#with post}}
         <p>  
           {{title}}
         </p>
@@ -23,7 +23,21 @@
           --{{user.username}}, {{createdAt}}
         </div>
       {{/each}}
-    {{/with}}
     </div>
+{{/with}}
+    {{#if loggedIn}}
+    <form class="form comment-form">
+      <div class="form-group">
+        <label >Comment</label>
+        <input class="form-comment-input" type="text" id="{{post.id}}" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+    {{/if}}
   </div>
 </div>
+
+
+
