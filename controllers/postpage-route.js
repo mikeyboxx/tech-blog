@@ -2,6 +2,14 @@ const router = require('express').Router();
 const {User, Post, Comment} = require('../models');
 
 
+router.get('/create', (req, res) => {
+  // If the user is already logged in, redirect to the homepage
+  res.render('createPostPage', {
+    loggedIn: req.session.loggedIn,  
+    title: 'Your Dashboard',
+  });
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {
