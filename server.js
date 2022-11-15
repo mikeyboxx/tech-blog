@@ -1,4 +1,5 @@
 const path = require('path');
+const moment = require('moment');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
@@ -22,6 +23,11 @@ app.engine('hbs', exphbs( // give the handlebars engine a name
   { 
     defaultLayout: 'main',   // set the default layout ot be main.hbs
     extname: '.hbs',         // set the extensions to end in hbs instead of handlebars
+    helpers: {
+      formatDate: (date) => {
+        return moment(moment(moment.parseZone(date).local().format())).format('LLLL');
+      },
+    }
   }
 ));
 

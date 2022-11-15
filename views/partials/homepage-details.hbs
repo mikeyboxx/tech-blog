@@ -1,15 +1,44 @@
 {{#each posts}}
 <section class="card">
   <header class="card-header">
-    <div class="card-header-title">
-      <a class="blog-title-link" href="/post/{{id}}">{{title}}</a>
-      <p> Posted by {{user.username}} on {{createdAt}}</p> 
+    <div class="card-header-title is-flex is-flex-direction-column is-align-items-start">
+      <p>
+        <a class="blog-title-link js-modal-trigger" data-target="new-comment{{@index}}">{{title}}</a>
+      </p>
+      <p> Posted by {{user.username}} on {{formatDate createdAt}}</p> 
     </div>
   </header>
   <section class="card-content">
     <p class="content">
       {{content}}
     </p>
+    {{#each comments }}
+      <div class="comment_content">
+          <span class="content-boyz2">
+            {{content}}
+          </span>
+          <div>
+            <p style="font-weight:bolder;" >@{{user.username}} --{{formatDate createdAt}}</p>
+          </div>
+      </div>
+    {{/each}}
   </section>
 </section>
+
+
+<div id="new-comment{{@index}}" post-id={{id}} class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head commentz">
+        <p class="modal-card-title" style="color:white; text-align: center; font-weight:bold;">Comment</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body commentz">
+        <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newcomment-text{{@index}}"></textarea>
+      </section>
+      <footer class="modal-card-foot commentz">
+        <a class="is-success submit-btn btn" id="newcomment-submit">Add Comment</a>
+      </footer>
+    </div>
+</div>
 {{/each}}

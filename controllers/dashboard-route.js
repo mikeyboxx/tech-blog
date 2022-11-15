@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Post} = require('../models');
+const {User, Post, Comment} = require('../models');
 
 
 router.get('/', async (req, res) => {
@@ -14,12 +14,11 @@ router.get('/', async (req, res) => {
       where: {
         user_id: req.session.userId
       },
-      include: [{ 
-        model: User,
-        attributes: ['username'],
-        
-      }],
-      
+      include: [
+        {model: User},
+        {model: Comment,
+          include: {model: User}},
+      ],
       order: [['createdAt', 'DESC']],
       attributes: ['id', 'title', 'content', 'createdAt']
     });
