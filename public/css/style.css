@@ -21,7 +21,13 @@ body {
 
 a {
   color: var(--dark);
-  text-decoration: none;
+  text-decoration: underline;
+}
+.new-post-link {
+  color: var(--dark);
+}
+.new-post-link:visited {
+  color: inherit;
 }
 
 a:visited {
@@ -51,6 +57,7 @@ aside {
 
 nav {
   display: flex;
+  justify-content: space-between;
   background-color: var(--secondary);
 }
 
@@ -131,7 +138,6 @@ img {
 .card header {
   color: var(--light);
   font-weight: bold;
-  text-transform: uppercase;
   margin: 0;
   background-color: var(--tertiary);
   padding: 0.625rem;
@@ -165,4 +171,30 @@ img {
 
 .modal-background {
   opacity: .6;
+}
+
+.comment-content {
+  margin-top: 20px;
+  overflow-wrap: break-word;
+}
+
+.post-title{
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+
+.delete-link {
+  margin-left: 20px;
+}
+
+.main-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.menu-items {
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 1.2em;
 }

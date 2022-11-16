@@ -1,24 +1,43 @@
 {{#each posts}}
 <section class="card">
   <header class="card-header">
-    <div class="card-header-title is-flex is-flex-direction-column is-align-items-start">
-      <p>
-        <a class="blog-title-link js-modal-trigger" data-target="new-comment{{@index}}">{{title}}</a>
-      </p>
-      <p>By {{user.username}} on {{formatDate createdAt}}</p> 
+
+    <div class="card-header-title is-flex  is-justify-content-space-between">
+      <div class="is-flex is-flex-direction-column is-align-items-start">
+        <p class="post-title">
+          {{title}}
+        </p>
+        <p>
+          @{{user.username}} -- {{formatDate createdAt}}
+        </p> 
+      </div>
+      <div class="is-flex  ">
+        {{#if ../loggedIn}}
+          <div>
+            <a class="blog-title-link js-modal-trigger" data-target="new-comment{{@index}}">Add a comment</a>
+          </div>
+          {{#if (isEqual user.username ../loggedInUsername)}}
+            <div>
+              <a class="blog-title-link delete-link delete{{@index}}" post-id="{{id}}">Delete Post</a>
+            </div>
+          {{/if}}
+        {{/if}}
+      </div>
     </div>
+
   </header>
   <section class="card-content">
     <p class="content">
       {{content}}
     </p>
+    <hr>
     {{#each comments }}
-      <div class="comment_content">
-          <span class="content-boyz2">
+      <div class="comment-content">
+          <span >
             {{content}}
           </span>
           <div>
-            <p style="font-weight:bolder;" >@{{user.username}} --{{formatDate createdAt}}</p>
+            <p class="comment-creator" style="font-weight:bolder;" >@{{user.username}} -- {{formatDate createdAt}}</p>
           </div>
       </div>
     {{/each}}

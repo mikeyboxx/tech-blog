@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
     });
 
     // res.json(posts);
-
     res.render('homepage', {
       loggedIn: req.session.loggedIn,  
+      loggedInUsername: req.session.username,  
       title: 'The Tech Blog',
       posts: posts.map(post => post.get(({ plain: true })))
     });

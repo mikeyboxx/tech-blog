@@ -1,15 +1,17 @@
 <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <a href="/dashboard">Dashboard</a>
-    <a class="js-modal-trigger" data-target="new-post">New Post</a>
-    <!-- If the user is logged in, show a logout button -->
-    <a href="/logout">Logout</a>
-    {{else}}
-    <!-- Otherwise, show a link to login -->
-    <a class="js-modal-trigger" data-target="sign-in">Login</a>
-    {{/if}}
-     <h1>{{title}}</h1>
+     <h1 class="main-title">{{title}}</h1>
+     <div class="menu-items">
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <a href="#" class="js-modal-trigger new-post-link" data-target="new-post">New Post</a>
+          <!-- If the user is logged in, show a logout button -->
+          <a href="/logout">Logout</a>
+        {{else}}
+          <!-- Otherwise, show a link to login -->
+          <a href="#" class="js-modal-trigger" data-target="sign-in">Login</a>
+        {{/if}}
+      </div>
 </nav>
 
 {{!-- New Post --}}

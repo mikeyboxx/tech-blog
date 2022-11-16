@@ -26,7 +26,8 @@ router.get('/', async (req, res) => {
     // res.json(posts);
 
     res.render('dashboard', {
-      loggedIn: req.session.loggedIn,  
+      loggedIn: req.session.loggedIn,
+      loggedInUsername: req.session.username,    
       title: 'Your Dashboard',
       posts: posts.map(post => post.get(({ plain: true })))
     });

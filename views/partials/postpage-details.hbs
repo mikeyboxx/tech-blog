@@ -1,0 +1,43 @@
+<div class="posts">
+{{#with post}}
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">
+        <p>  
+          {{title}}
+        </p>
+        <p>
+          Posted by {{user.username}} on {{createdAt}}
+        </p> 
+      </div>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{content}}
+      </div>
+      {{#each comments }}
+        <div>
+          {{content}}
+        </div>
+        <div>
+          --{{user.username}}, {{createdAt}}
+        </div>
+      {{/each}}
+    </div>
+{{/with}}
+    {{#if loggedIn}}
+    <form class="form comment-form">
+      <div class="form-group">
+        <label >Comment</label>
+        <input class="form-comment-input" type="text" id="{{post.id}}" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+    {{/if}}
+  </div>
+</div>
+
+
+
