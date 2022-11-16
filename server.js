@@ -7,14 +7,27 @@ const clog = require('./middleware/clog');
 const sequelize = require('./config/connection');
 const routes = require('./controllers');  // all routes get intercepted there
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { strict } = require('assert');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up sessions
+
+// Creates a session object and saves in sequelize
 const sess = {
   secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,   // expires in 24 hours
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));

@@ -106,7 +106,7 @@ img {
 }
 
 /* CARDS */
-.card {
+.card, .modal-card {
   margin: 20px;
   flex: 0 1 300px;
   border: 7px double var(--dark);
@@ -161,4 +161,8 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+.modal-background {
+  opacity: .6;
 }
